@@ -1,42 +1,48 @@
-SELECT product_name, price
-FROM products
-WHERE category = 'Electronics';
+SELECT 
+    *
+FROM
+    sales;
+SELECT 
+    SaleDate, Amount, Boxes, Amount / boxes AS 'Amount per box '
+FROM
+    sales;
 
-UPDATE inventory
-SET quantity = 50
-WHERE product_id = 101;
-
-DELETE FROM orders
-WHERE order_id = 12345;
-
-CREATE TABLE employees (
-    employee_id INT PRIMARY KEY,
-    name VARCHAR(50),
-    department VARCHAR(50),
-    salary DECIMAL(10, 2)
-);
-
-ALTER TABLE employees
-ADD hire_date DATE;
-
-DROP TABLE customers;
-
-SELECT s.sales, r.sales_rep
-FROM sales_data s
-INNER JOIN representatives r
-ON s.rep_id = r.rep_id
-WHERE s.region = 'East';
+SELECT 
+    *
+FROM
+    sales
+WHERE
+    amount > 10000
+ORDER BY amount ;
 
 
-SELECT s.sales, r.sales_rep
-FROM sales_data s
-LEFT JOIN representatives r
-ON s.rep_id = r.rep_id
-WHERE s.region = 'West';
+SELECT 
+    *
+FROM
+    sales
+WHERE
+    geoid = 'G1'
+ORDER BY PID, Amount DESC ;
 
-SELECT s.sales, r.sales_rep
-FROM sales_data s
-RIGHT JOIN representatives r
-ON s.rep_id = r.rep_id
-WHERE r.region = 'North';
 
+SELECT 
+    *
+FROM
+    sales
+WHERE
+    amount > 1000 AND YEAR(SaleDate) = 2022
+ORDER BY amount DESC;
+
+SELECT 
+    *
+FROM
+    sales
+WHERE
+    boxes > 0 AND boxes <= 50;
+    
+SELECT 
+    *
+FROM
+    sales
+WHERE
+    boxes BETWEEN 0 AND 50;
