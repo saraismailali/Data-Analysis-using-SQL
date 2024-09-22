@@ -46,3 +46,5 @@ FROM
     sales
 WHERE
     boxes BETWEEN 0 AND 50;
+
+ 
