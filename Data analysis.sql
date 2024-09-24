@@ -47,4 +47,21 @@ FROM
 WHERE
     boxes BETWEEN 0 AND 50;
 
- 
+SELECT 
+    *
+FROM
+    people;
+
+SELECT 
+    *
+FROM
+    people
+WHERE
+    Team = 'Delish' OR Team = 'Jucies';
+    
+SELECT 
+    *
+FROM
+    people
+WHERE
+    team IN ('Delish' , 'Juices')
